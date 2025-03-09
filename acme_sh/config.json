@@ -24,5 +24,8 @@
     "certfile": "str",
     "keyfile": "str",
     "rootcertfile": "str"
+  },
+  "ports":{
+    "80/tcp": "80"
   }
 }
