@@ -5,7 +5,7 @@ SERVER=$(bashio::config 'server')
 DOMAINS=$(bashio::config 'domains')
 KEYFILE=$(bashio::config 'keyfile')
 CERTFILE=$(bashio::config 'certfile')
-ROOTCERTFILE=$(bashio::config 'rootcertfile')
+ROOTCERTURL=$(bashio::config 'rootcerturl')
 
 DOMAIN_ARR=()
 for domain in $DOMAINS; do
@@ -17,8 +17,12 @@ if [ -n "$SERVER" ]; then
     SERVER_ARG="--server $SERVER"
 fi
 
+if [ ! -f /ssl/roots.pem ]; then
+    curl -o "/ssl/roots.pem" --insecure "${ROOTCERTURL}" 
+fi
+
 /root/.acme.sh/acme.sh --issue --standalone  "${DOMAIN_ARR[@]}" \
---ca-bundle "/ssl/${ROOTCERTFILE}" \
+--ca-bundle "/ssl/roots.pem" \
 --fullchain-file "/ssl/${CERTFILE}" \
 --key-file "/ssl/${KEYFILE}" \
 $SERVER_ARG 
