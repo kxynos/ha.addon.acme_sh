@@ -39,7 +39,7 @@ action:
       addon: 5b07adba_acme_sh
 initial_state: true
 mode: single
-description: Renew SSL Certificates using ZeroSSL
+description: Renew SSL Certificates using local CA
 ```
 
 ## configuration.yaml (restart HA)
