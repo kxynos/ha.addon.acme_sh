@@ -1,9 +1,9 @@
 {
   "name": "ACME.sh Certs",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "slug": "acme_sh",
-  "description": "Manage certificates with ACME.sh",
-  "url": "https://github.com/wernerhp/ha_addon_acme_sh",
+  "description": "Manage certificates with ACME.sh for local CA",
+  "url": "https://github.com/kxynos/ha.addon.acme_sh",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "once",
   "boot": "manual",
@@ -11,11 +11,11 @@
   "map": ["ssl:rw"],
   "options": {
     "account": "str",
-    "server": "zerossl",
+    "server": "ca.local",
     "domains": [null],
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
-    "dns": {}
+    "rootcertfile":"str"
   },
   "schema": {
     "account": "str",
@@ -23,9 +23,6 @@
     "domains": ["str"],
     "certfile": "str",
     "keyfile": "str",
-    "dns": {
-      "provider": "str",
-      "env": ["str"]
-    }
+    "rootcertfile": "str"
   }
 }
