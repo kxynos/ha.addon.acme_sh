@@ -1,0 +1,7 @@
+---
+name: acme.sh
+ingress: true
+ingress_port: 0
+ingress_stream: true
+ports:
+  80/tcp: 80
