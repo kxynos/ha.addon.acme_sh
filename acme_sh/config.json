@@ -26,6 +26,6 @@
     "rootcertfile": "str"
   },
   "ports":{
-    "80/tcp": "80"
+    "80/tcp": 80
   }
 }
