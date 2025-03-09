@@ -18,7 +18,7 @@ if [ -n "$SERVER" ]; then
 fi
 
 /root/.acme.sh/acme.sh --issue --standalone  "${DOMAIN_ARR[@]}" \
---ca-bundle "$ROOTCERTFILE" \
+--ca-bundle "/ssl/${$ROOTCERTFILE}" \
 --fullchain-file "/ssl/${CERTFILE}" \
 --key-file "/ssl/${KEYFILE}" \
 $SERVER_ARG 
