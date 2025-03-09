@@ -15,7 +15,7 @@ If you find this addon useful, please consider supporting my work by [buying me 
 
 
 ## Config
-```
+```yaml
 account: me@example.com
 server: https://ca.local/acme/acme/directory
 domains:
@@ -40,4 +40,11 @@ action:
 initial_state: true
 mode: single
 description: Renew SSL Certificates using ZeroSSL
+```
+
+## configuration.yaml (restart HA)
+```yaml
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 ```
