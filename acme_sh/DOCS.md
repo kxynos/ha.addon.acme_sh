@@ -14,7 +14,7 @@ If you find this addon useful, please consider supporting my work by [buying me 
 <a href="https://www.buymeacoffee.com/kxynos" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 
-## Config
+## Config 
 ```yaml
 account: me@example.com
 server: https://ca.local/acme/acme/directory
@@ -23,7 +23,7 @@ domains:
   - '*.my.domain.tld'
 certfile: fullchain.pem
 keyfile: privkey.pem
-rootcertfile: root_ca.crt
+rootcertfile: https://ca.local/roots.pem
 
 ```
 ## Automation 
