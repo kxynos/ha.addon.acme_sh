@@ -13,7 +13,7 @@ uart: true
 hassio_api: true
 hassio_role: manager
 homeassistant_api: true
-startup: services
+startup: once
 init: false
 ingress: true
 ingress_port: 8080
