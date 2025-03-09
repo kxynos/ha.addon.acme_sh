@@ -5,12 +5,7 @@ SERVER=$(bashio::config 'server')
 DOMAINS=$(bashio::config 'domains')
 KEYFILE=$(bashio::config 'keyfile')
 CERTFILE=$(bashio::config 'certfile')
-DNS_PROVIDER=$(bashio::config 'dns.provider')
-DNS_ENVS=$(bashio::config 'dns.env')
-
-for env in $DNS_ENVS; do
-    export $env
-done
+ROOTCERTFILE=$(bashio::config 'rootcertfile')
 
 DOMAIN_ARR=()
 for domain in $DOMAINS; do
@@ -22,14 +17,10 @@ if [ -n "$SERVER" ]; then
     SERVER_ARG="--server $SERVER"
 fi
 
-/root/.acme.sh/acme.sh --register-account -m ${ACCOUNT} $SERVER_ARG
-
-/root/.acme.sh/acme.sh --issue "${DOMAIN_ARR[@]}" \
---dns "$DNS_PROVIDER" \
-$SERVER_ARG
-
-/root/.acme.sh/acme.sh --install-cert "${DOMAIN_ARR[@]}" \
+/root/.acme.sh/acme.sh --issue --standalone  "${DOMAIN_ARR[@]}" \
+--ca-bundle "$ROOTCERTFILE" \
 --fullchain-file "/ssl/${CERTFILE}" \
 --key-file "/ssl/${KEYFILE}" \
-
+$SERVER_ARG 
+    
 tail -f /dev/null
