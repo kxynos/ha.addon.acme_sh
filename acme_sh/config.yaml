@@ -9,8 +9,17 @@ arch:
   - armhf
   - armv7
   - i386
+uart: true
+hassio_api: true
+hassio_role: manager
+homeassistant_api: true
+startup: services
+init: false
 ingress: true
-ingress_port: 80
+ingress_port: 8080
 ingress_stream: true
 ports:
-  80/tcp: 80
+  80/tcp: 8080
+map:
+  - type: ssl
+    read_only: false
