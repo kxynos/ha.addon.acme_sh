@@ -25,6 +25,7 @@ fi
 --ca-bundle "/ssl/roots.pem" \
 --fullchain-file "/ssl/${CERTFILE}" \
 --key-file "/ssl/${KEYFILE}" \
+--days 365 \
 $SERVER_ARG 
     
 tail -f /dev/null
