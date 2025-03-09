@@ -1,5 +1,5 @@
 {
-  "name": "Home Assistant ACME.sh Certs",
-  "url": "https://github.com/wernerhp/ha_addon_acme_sh",
-  "maintainer": "Werner Pieterson <wernerhp@gmail.com>"
+  "name": "Home Assistant ACME.sh Certs for local CA",
+  "url": "https://github.com/kxynos/ha.addon.acme_sh",
+  "maintainer": "KX <kxynos+pub@gmail.com>"
 }
